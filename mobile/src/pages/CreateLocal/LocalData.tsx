@@ -16,6 +16,7 @@ interface LocalDataRouteParams {
 export default function LocalData(){
   const [name, setName] = useState('');
   const [about, setAbout] = useState('');
+  const [phone, setPhone] = useState('');
   const [instructions, setInstructions] = useState('');
   const [horario_funcionamento, setHorarioFuncionamento] = useState('');
   const [images, setImages] = useState<string[]>([]);
@@ -31,6 +32,7 @@ export default function LocalData(){
     latitude,
     longitude,
     about,
+    phone,
     instructions,
     horario_funcionamento,
   });
@@ -41,6 +43,7 @@ data.append('name', name);
 data.append('latitude', String (latitude));
 data.append('longitude', String (longitude));
 data.append('about', about);
+data.append('phone', phone);
 data.append('instructions', instructions);
 data.append('horario_funcionamento', horario_funcionamento);
 
@@ -98,10 +101,13 @@ return(
         onChangeText = {setAbout}
       />
 
-     {/* <Text style={styles.label}>Whatsapp</Text>
+      <Text style={styles.label}>Whatsapp</Text>
       <TextInput
+        textContentType = 'telephoneNumber'
         style={styles.input}
-    />*/}
+        value = {phone}
+        onChangeText = {setPhone}
+    />
 
       <Text style={styles.label}>Fotos</Text>
       <View style = {styles.uploadedImagesContainer}>

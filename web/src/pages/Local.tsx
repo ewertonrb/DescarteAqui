@@ -31,7 +31,7 @@ interface PlacesParams{
 export default function Local() {
   const params = useParams() as PlacesParams;
   const[local, setLocal] = useState<Local>();
-  const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const [activeImageIndex, setActiveImageIndex] = useState(1);
 
 
     useEffect(()=>{

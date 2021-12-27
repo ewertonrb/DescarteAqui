@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import Local from '../images/local.svg';
 import {Link} from 'react-router-dom';
-import{FiPlus, FiArrowRight} from 'react-icons/fi';
+import{FiPlus, FiEdit3, FiArrowRight} from 'react-icons/fi';
+
 import '../styles/pages/CollectionMap.css';
 import {Map, TileLayer, Marker, Popup} from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -59,9 +60,14 @@ return (
                 >
                      <Popup closeButton = {false} minWidth={240} maxWidth= {240} className ="map-popup">
                        {local.name}
+
+                       <Link to = {`/update/${local.id}`} className='iconUpdate'>
+                        <FiEdit3 size={20} color="#15c3d6" />
+                       </Link>
                        <Link to = {`/local/${local.id}`}>
                         <FiArrowRight size={20} color="#fff" />
                        </Link>
+
                     </Popup>    
                 </Marker>
             )

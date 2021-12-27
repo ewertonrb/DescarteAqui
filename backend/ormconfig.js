@@ -9,7 +9,7 @@ module.exports = {
   synchronize: false,
   extra: {
     ssl: {
-      require: true,
+      require: false,
       rejectUnauthorized: false
     }
   },

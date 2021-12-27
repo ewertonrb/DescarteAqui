@@ -29,10 +29,10 @@ function Landing() {
           <img src = {lixo} width="540" height="400" alt="LX" id="imglixo"/>
         </div>
 
-        <Link to="" className = "down-app">
+        <a target= "_blank" rel="noopener noreferrer" href={"https://drive.google.com/file/d/1yjXt1sW4FTY6RFoa8mgSUgVjJoQV0Yyk/view?usp=sharing"} className = "down-app">
          <FiDownload size ={26} color="rgba(0,0,0,0.6)" />
          <legend>Download APK</legend>
-         </Link>
+         </a>
 
          <Link to="/login" className = "enter-app">
          <FiArrowRight size ={26} color="rgba(0,0,0,0.6)" />

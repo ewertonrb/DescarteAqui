@@ -18,6 +18,7 @@ interface Local{
   latitude: number;
   longitude: number;
   about: string;
+  phone: string;
   instructions: string;
   horario_funcionamento: string;
   images: Array<{
@@ -36,7 +37,7 @@ export default function LocalDetails(){
     api.get(`locais/${params.id}`).then(response=> {
       setLocal(response.data);
     })
-  },[params.id])
+  },[params.id]);
 
   if(!local){
     return(
@@ -47,6 +48,9 @@ export default function LocalDetails(){
   }
   function handleOpenGoogleMapRoutes(){
     Linking.openURL(`https://www.google.com/maps/dir/?api=1&destination=${local?.latitude},${local?.longitude}`)
+  }
+  function openWhatsapp(){
+    Linking.openURL(`http://api.whatsapp.com/send?phone=55${local?.phone}`);
   }
 
     return(
@@ -103,7 +107,7 @@ export default function LocalDetails(){
         
           <View style={styles.separator} />
   
-          <Text style={styles.title}>Instruções para coleta</Text>
+          <Text style={styles.title}>Instruções para coleta:</Text>
           <Text style={styles.description}>
             {local.instructions}
           </Text>
@@ -114,13 +118,9 @@ export default function LocalDetails(){
               <Text style={[styles.scheduleText, styles.scheduleTextBlue]}>Segunda à Sexta {local.horario_funcionamento}</Text>
             </View>
 
-          {/*<View style={[styles.scheduleItem, styles.scheduleItemGreen]}>
-              <Feather name="info" size={40} color="#39CC83" />
-              <Text style={[styles.scheduleText, styles.scheduleTextGreen]}>Atendemos fim de semana</Text>
-              </View>*/}
           </View>
   
-          <RectButton style={styles.contactButton} onPress={() => {}}>
+          <RectButton style={styles.contactButton} onPress={openWhatsapp}>
             <FontAwesome name="whatsapp" size={24} color="#FFF" />
             <Text style={styles.contactButtonText}>Entrar em contato</Text>
               </RectButton> 

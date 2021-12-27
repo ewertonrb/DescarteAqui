@@ -81,5 +81,25 @@ export default {
       
           await locaisRepository.save(local);
           return response.status(201).json(LocaisdeColeta_views.render(local));
-        }
+        },
+
+        async updateLocal(request: Request, response: Response){
+          const local = await getRepository(LocalDeColeta).findOne(request.params.id);
+
+          if(local){
+             getRepository(LocalDeColeta).merge(local, request.body);
+             const newlocal = await getRepository(LocalDeColeta).save(local);
+             return response.json(LocaisdeColeta_views.render(newlocal));
+          }else{
+          return response.json({message:("Não foi possível encontrar o local!")});
+          }
+        },
+
+        async deleteLocal(request: Request, response: Response){
+          await getRepository(LocalDeColeta).delete(request.params.id);
+    
+          return response.json({message:("Local deletado com sucesso!")});
+          
+        },
+
     };

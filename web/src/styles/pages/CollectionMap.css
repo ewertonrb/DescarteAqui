@@ -87,6 +87,19 @@ background: #17d6eb;
     justify-content: center;
     align-items: center;
 }
+
+#page-map .map-popup .leaflet-popup-content .iconUpdate {
+    width: 10;
+    height: 10;
+    background: #fff;
+    box-shadow: 17.2868px 27.6589px 41.4884px rgba(23, 142, 166, 0.16);
+    border-radius: 24px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 #page-map .map-popup .leaflet-popup-tip-container {
     display: none;
 }

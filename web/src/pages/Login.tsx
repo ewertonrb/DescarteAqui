@@ -14,6 +14,8 @@ export function Login(){
     }
 
     return(
+
+      
       
       <div id = "page-login" >
       <div className="content-wrapper">
@@ -25,6 +27,7 @@ export function Login(){
         <span>Bahia</span>
         </div>
 
+        {alert('Login ilustrativo, basta clicar em confirmar!')}
 
         <main>
             <form onSubmit={data} className = "form">
@@ -33,12 +36,14 @@ export function Login(){
             
             <div className="input-block">
               <label htmlFor="name">Nome:</label>
-              <input id="name"/>
+              <input id="name" type= 'email'/>
             </div>
 
             <div className="input-block">
               <label htmlFor="password">Password:</label>
+
               <input id="password" type= "password" />
+
             </div>
 
             <span className = "senha">Esqueceu sua senha?</span>

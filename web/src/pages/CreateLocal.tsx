@@ -11,8 +11,6 @@ import { useHistory } from 'react-router';
 import React from 'react';
 
 
-
-
 export default function CreateLocal(){
 
   const history = useHistory();
@@ -25,7 +23,6 @@ export default function CreateLocal(){
   const [horario_funcionamento, setHorarioFuncionamento] = useState('');
   const [images, setImages] = useState<File[]>([]);
   const [previewImages, setPreviewImages] = useState<string[]>([]);
-
 
   
   function handleMapClick(event: LeafletMouseEvent){
@@ -175,6 +172,7 @@ export default function CreateLocal(){
               <input
               id="phone"
               required placeholder="(xx) xxxxx-xxxx"
+              type="number"
               value= {phone} 
               onChange={event => setphone(event.target.value)}
                />

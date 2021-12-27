@@ -7,6 +7,7 @@ const {Navigator, Screen} = createNativeStackNavigator();
 
 import CollectionMap from './pages/CollectionMap';
 import LocalDetails from './pages/LocalDetails';
+import Login from './pages/Login';
 import SelectMapPosition from './pages/CreateLocal/SelectMapPosition';
 import LocalData from './pages/CreateLocal/LocalData';
 import Header from './components/Header';
@@ -16,10 +17,17 @@ export default function Routes(){
     return(
         <NavigationContainer>
         <Navigator screenOptions = {{headerShown: false, cardStyle: {backgroundColor:'#f2f3f5'}}}>
+
+        <Screen 
+        name = "Login" 
+        component= {Login}
+        />
+        
         <Screen 
         name = "CollectionMap" 
         component= {CollectionMap}
         />
+        
         <Screen 
         name = "LocalDetails" 
         component= {LocalDetails}
@@ -28,6 +36,7 @@ export default function Routes(){
             header: () => <Header title = "Local" />
         }}
         />
+        
         <Screen 
         name = "SelectMapPosition" 
         component= {SelectMapPosition}
@@ -36,6 +45,7 @@ export default function Routes(){
             header: () => <Header showCancel = {false} title = "Marque o local no Mapa" />
         }}
         />
+         
          <Screen 
         name = "LocalData" 
         component= {LocalData}
@@ -44,10 +54,8 @@ export default function Routes(){
             header: () => <Header title = "Informe os Dados" />
         }}
         />
+       
         </Navigator>
-        
-        
-        
         </NavigationContainer>
     );
 
